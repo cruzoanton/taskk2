@@ -1,10 +1,7 @@
 package com.company;
 
-import sun.security.util.ArrayUtil;
-
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class Main {
 
@@ -44,45 +41,45 @@ public class Main {
             System.out.println(numArr[i] + " -> " + counters[i] + " симв"); //3 задание
         }
         {
-            int a = 0, b = 0, c = 0, d = 0, e = 0;
-            for (int i = 0; i < numArr.length; i++)
-                if ((numArr[i] > 0) && (numArr[i] < 100000)) {   //7 задание
-                    a = numArr[i] / 10000 % 10;
-                    b = numArr[i] / 1000 % 10;
-                    c = numArr[i] / 100 % 10;
-                    d = numArr[i] / 10 % 10;
-                    e = numArr[i] % 10;
+            int a, b, c, d, e;
+            for (int j : numArr)
+                if ((j > 0) && (j < 100000)) {   //7 задание
+                    a = j / 10000 % 10;
+                    b = j / 1000 % 10;
+                    c = j / 100 % 10;
+                    d = j / 10 % 10;
+                    e = j % 10;
 
                     if (a != b & a != c & b != a & b != c & d != a & d != b & d != c & e != a & e != b & e != c & e != d)
-                        System.out.println("Все без одинаковых: " + numArr[i]);
+                        System.out.println("Все без одинаковых: " + j);
                 }
         }
         {
-            int a = 0, b = 0, c = 0, d = 0, e = 0;
-            for (int i = 0; i < numArr.length; i++)
-                if ((numArr[i] > 0) && (numArr[i] < 100000)) {  //5 задание
-                    a = numArr[i] / 10000 % 10;
-                    b = numArr[i] / 1000 % 10;
-                    c = numArr[i] / 100 % 10;
-                    d = numArr[i] / 10 % 10;
-                    e = numArr[i] % 10;
+            int a, b, c, d, e;
+            for (int j : numArr)
+                if ((j > 0) && (j < 100000)) {  //5 задание
+                    a = j / 10000 % 10;
+                    b = j / 1000 % 10;
+                    c = j / 100 % 10;
+                    d = j / 10 % 10;
+                    e = j % 10;
 
                     if (a % 2 == 0 & b % 2 == 0 & c % 2 == 0 & d % 2 == 0 & e % 2 == 0)
-                        System.out.println("Все символы четные: " + numArr[i]);
+                        System.out.println("Все символы четные: " + j);
                 }
         }
         {
-            int a = 0, b = 0, c = 0, d = 0, e = 0;
-            for (int i = 0; i < numArr.length; i++)
-                if ((numArr[i] > 0) && (numArr[i] < 100000)) {  //6 задание
-                    a = numArr[i] / 10000 % 10;
-                    b = numArr[i] / 1000 % 10;
-                    c = numArr[i] / 100 % 10;
-                    d = numArr[i] / 10 % 10;
-                    e = numArr[i] % 10;
+            int a, b, c, d, e;
+            for (int j : numArr)
+                if ((j > 0) && (j < 100000)) {  //6 задание
+                    a = j / 10000 % 10;
+                    b = j / 1000 % 10;
+                    c = j / 100 % 10;
+                    d = j / 10 % 10;
+                    e = j % 10;
 
                     if (a <= b & b <= c & c <= d & d <= e)
-                        System.out.println("Все возрастающие(посимвольно): " + numArr[i]);
+                        System.out.println("Все возрастающие(посимвольно): " + j);
 
                 }
         }
