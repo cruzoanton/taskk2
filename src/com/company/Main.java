@@ -22,11 +22,20 @@ public class Main {
             counters[f++] = count;                  //готовый массив количеств символов
         }
         Arrays.sort(numArr); //сортировка чисел
+        System.out.println("По возрастанию:"); //3 задание
+        for (int i = 0; i < numArr.length; i++) {
+            System.out.print(numArr[i] + " ");
+        }
+        System.out.println();
+        System.out.println("В обратном порядке:");
+        for (int i = numArr.length - 1; i >= 0; i--) {
+            System.out.print(numArr[i] + " ");
+        }
+        System.out.println();
         Arrays.sort(counters); //сортировка счетчиков(количества символов)
         //System.out.println("в количествах символов " + Arrays.toString(counters));
         System.out.println("Самое короткое -> " + numArr[0]); //1 задание
         System.out.println("Самое длинное ->  " + numArr[numArr.length - 1]); //2 задание
-        System.out.println("По возрастанию " + Arrays.toString(numArr)); //3 задание
         for (int i = 0; i < numArr.length; i++) {
             System.out.println(numArr[i] + " -> " + counters[i] + " симв"); //1 задание
         }
@@ -85,19 +94,53 @@ public class Main {
         }
 
         {
-            Matrixx m33 = new Matrixx(5, 5, 9);
-            m33.DisplayMatrix();
+            System.out.println("Задай размер матрицы");
+            int m = scan.nextInt();
+            System.out.println("Задай максимум рандома матрицы");
+            int max = scan.nextInt();
+            Matrixx matr = new Matrixx(m, m, max);
+            System.out.println("Матрица сгенерирована");
+            matr.DisplayMatrix();
             System.out.println("---");
+            matr.rotate90();
+            System.out.println("Крутим против часовой на 90"); //9.5
+            matr.DisplayMatrix();
+            matr.rotate90();
+            System.out.println("Крутим против часовой на 180");
+            matr.DisplayMatrix();
+            matr.rotate90();
+            System.out.println("Крутим против часовой на 270");
+            matr.DisplayMatrix();
+            matr.rotate90();
+            System.out.println("Вернули исходную");
+            matr.DisplayMatrix();
+            System.out.println("На сколько смещаем влево?"); //9.2
+            int shiftL = scan.nextInt();
+            matr.shiftLeft(shiftL);
+            System.out.println();
+            matr.DisplayMatrix();
+            System.out.println("На сколько смещаем вправо?");
+            int shiftR = scan.nextInt();
+            matr.shiftRight(shiftR);
+            System.out.println();
+            matr.DisplayMatrix();
+            System.out.println("На сколько смещаем вверх?");
+            int shiftU = scan.nextInt();
+            matr.shiftUp(shiftU);
+            System.out.println();
+            matr.DisplayMatrix();
+            System.out.println("На сколько смещаем вниз?");
+            int shiftD = scan.nextInt();
+            matr.shiftDown(shiftD);
+            System.out.println();
+            matr.DisplayMatrix();
 
-            for (int i = 0;
-                 i < 3; i++) {
-                m33.rotateMatrix(90);
-                System.out.println("---");
-                m33.DisplayMatrix();
-
-            }
         }
+
     }
+
+
 }
+
 
 

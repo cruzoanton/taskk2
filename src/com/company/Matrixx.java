@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Arrays;
-
 class Matrixx {
 
     int[][] element;
@@ -18,9 +16,11 @@ class Matrixx {
             for (int j = 0; j < cols; j++) {
                 element[i][j] = (int) Math.round(Math.abs(randomLimit) * Math.random());
             }
-//            Arrays.sort(element);
+
         }
+
     }
+
 
 //    public int getValue(int row, int col) {
 //        return this.element[row][col];
@@ -54,7 +54,7 @@ class Matrixx {
         }
     }
 
-    private void rotate90() {
+    public void rotate90() {
         int[][] rotMat = new int[this.cols][this.rows];
 
         for (int rw = 0; rw < this.rows; rw++)
@@ -67,18 +67,60 @@ class Matrixx {
 
     }
 
-    public void rotateMatrix(int angleRot) {
+    public void shiftLeft(int steps) {
 
-        if (angleRot == 90) {
-            rotate90();
-        } else if (angleRot == 180) {
-            rotate90();
-            rotate90();
-        } else if (angleRot == 270) {
-            rotate90();
-            rotate90();
-            rotate90();
+        for (int i = 0; i < element.length; i++) {
+            int realSteps = steps % element[i].length;
+            while (realSteps-- > 0) {
+                int temp = element[i][0]; //берем первое значение и сохраняем
+                for (int j = element[i].length - 1; j >= 0; j--) { //перебор в обратном порядке
+                    int val = element[i][j];
+                    element[i][j] = temp;//закидываем в последнюю наше первое значение
+                    temp = val;
+                }
+            }
+        }
+    }
+    public void shiftRight(int steps) {
 
+        for (int i = 0; i < element.length; i++) {
+            int realSteps = steps % element[i].length;
+            while (realSteps-- > 0) {
+                int temp = element[i][element.length-1];
+                for (int j = 0; j < element.length; j++) { //тут перебираем с начала
+                    int val = element[i][j];
+                    element[i][j] = temp;
+                    temp = val;
+                }
+            }
+        }
+    }
+    public void shiftUp(int steps) {
+
+        for (int j = 0; j < element.length; j++) {
+            int realSteps = steps % element[j].length;
+            while (realSteps-- > 0) {
+                int temp = element[0][j];
+                for (int i = element[j].length - 1; i >= 0; i--) {
+                    int val = element[i][j];
+                    element[i][j] = temp;
+                    temp = val;
+                }
+            }
+        }
+    }
+    public void shiftDown(int steps) {
+
+        for (int j = 0; j < element.length; j++) {
+            int realSteps = steps % element[j].length;
+            while (realSteps-- > 0) {
+                int temp = element[element.length-1][j];
+                for (int i = 0; i < element.length; i++) {
+                    int val = element[i][j];
+                    element[i][j] = temp;
+                    temp = val;
+                }
+            }
         }
     }
 
